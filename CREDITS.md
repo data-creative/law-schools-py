@@ -8,3 +8,4 @@
   + [`csv` Module Overview](https://github.com/prof-rossetti/nyu-info-2335-70-201706/blob/master/notes/programming-languages/python/modules/csv.md)
   + [`re` Module Docs](https://docs.python.org/2/library/re.html)
   + [Finding All Occurrences of Substring](https://stackoverflow.com/questions/4664850/find-all-occurrences-of-a-substring-in-python)
+  + [Slicing Strings](https://stackoverflow.com/questions/509211/explain-slice-notation)

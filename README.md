@@ -1,15 +1,22 @@
+# ABA Schools (Python)
 
+A source for data about law schools accredited by the [American Bar Association (ABA)](https://www.americanbar.org). Contains a comprehensive list of schools in machine-readable formats.
 
+## Usage
+
+Reference [`data/schools.csv`](_____________) and/or [`data/schools.json`](_______________).
+
+## Contributing
 
 ### Installation
 
 ```shell
-git clone ______
-cd ______
+git clone __________/aba-schools-py
+cd aba-schools-py/
 pip3 install -r requirements.txt
 ```
 
-### Usage
+### Setup
 
 First, ensure the file called `mocks/disclosures_div.html` contains an updated list of schools:
 
@@ -18,13 +25,15 @@ First, ensure the file called `mocks/disclosures_div.html` contains an updated l
   + Review the contents of that document to find JavaScript-generated HTML contents. Search for the text `"The ABA collects this quantitative data" ...` to find where jQuery generates the contents of a `p` tag.
   + Copy and paste the entire `p` tag contents to `mocks/disclosures_div.html`.
 
+### Execution
+
 Generate a CSV file containing the official list of schools:
 
 ```shell
 python3 app/list_schools.py
 ```
 
-This will update the contents of `data/schools.csv`.
+This will update the contents of `data/schools.csv` and `data/schools.json`.
 
 ### Testing
 
