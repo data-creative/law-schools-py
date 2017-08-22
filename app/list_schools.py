@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import re
+import json
 from IPython import embed
 
 schools = []
@@ -56,3 +57,6 @@ if __name__ == "__main__":
         for school in schools:
             print(school)
             writer.writerow(school)
+
+    with open("data/schools.json", "w") as json_file:
+        json_file.write(json.dumps(schools))
