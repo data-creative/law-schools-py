@@ -14,10 +14,10 @@ if __name__ == "__main__":
         document = html_file.read()
         soup = BeautifulSoup(document, "lxml") # use "lxml" param to avoid warning when parsing local file
         links = soup.find_all("a") # around 215 items
-
         for link in links:
-            # not if text == "" or text in ['Standard 509 Information Reports', ]
-            schools.append({"name": link.text, "url": clean_href(link.attrs["href"])})
+            name = link.text
+            if not name in ["Standard 509 Information Reports", "Employment Summary Reports", ""]:
+               schools.append({"name": name, "url": clean_href(link.attrs["href"])})
 
     with open("data/schools.csv", "w") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=["name", "url"])
