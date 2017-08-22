@@ -1,24 +1,28 @@
 import requests
 from bs4 import BeautifulSoup
+import csv
 from IPython import embed
 
-school_links = []
+schools = []
 
 def clean_href(href):
     return href.replace("\\", "").strip("\"")
 
 if __name__ == "__main__":
 
-    with open("mocks/disclosures_div.html", "r") as file:
-        document = file.read()
-
+    with open("mocks/disclosures_div.html", "r") as html_file:
+        document = html_file.read()
         soup = BeautifulSoup(document, "lxml") # use "lxml" param to avoid warning when parsing local file
-
         links = soup.find_all("a") # around 215 items
 
         for link in links:
             # not if text == "" or text in ['Standard 509 Information Reports', ]
-            school_links.append({"school": link.text, "url": clean_href(link.attrs["href"])})
+            schools.append({"name": link.text, "url": clean_href(link.attrs["href"])})
 
-    for school_link in school_links:
-        print(school_link)
+    with open("data/schools.csv", "w") as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=["name", "url"])
+        writer.writeheader() # uses fieldnames set above
+
+        for school in schools:
+            print(school)
+            writer.writerow(school)
