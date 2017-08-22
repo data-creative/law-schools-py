@@ -4,20 +4,22 @@ def test_clean_href():
     dirty_href = '\\"http://www.abarequireddisclosures.org/\\"'
     assert clean_href(dirty_href) == 'http://www.abarequireddisclosures.org/'
 
-def test_clean_name():
-    names = [
-        {"dirty":"AKRON (1961)", "clean":"AKRON"},
-        {"dirty":"ARIZONA SUMMIT(formerly Phoenix - 2007)", "clean":"ARIZONA SUMMIT"},
-        {"dirty":"CALIFORNIA - Berkeley (1923)", "clean":"CALIFORNIA - BERKELEY"},
-        {"dirty":"CONCORDIA (2015)*", "clean":"CONCORDIA"},
-        {"dirty":"MITCHELL|HAMLINE (2015)", "clean":"MITCHELL|HAMLINE"}, # consider 'MITCHELL - HAMLINE'
-        {"dirty":"NEVADA (2000) ", "clean":"NEVADA"},
-        {"dirty":"NEW ENGLAND LAW | BOSTON (1969)", "clean":"NEW ENGLAND LAW | BOSTON"}, # consider 'NEW ENGLAND LAW - BOSTON'
-        {"dirty":"PENNSYLVANIA STATE-Penn State Law (1931)", "clean":"PENNSYLVANIA STATE-PENN STATE LAW"}, # consider "PENNSYLVANIA STATE - PENN STATE LAW"
-        {"dirty":"ST. THOMAS (Florida) (1988)", "clean":"ST. THOMAS (FLORIDA)"},
-        {"dirty":"UNT Dallas (2017)", "clean":"UNT DALLAS"}
+def test_parse_name():
+    name_transformations = [
+        {"dirty":"AKRON (1961)", "clean":"AKRON", "year":1961},
+        {"dirty":"ARIZONA SUMMIT(formerly Phoenix - 2007)", "clean":"ARIZONA SUMMIT", "year":2007},
+        {"dirty":"CALIFORNIA - Berkeley (1923)", "clean":"CALIFORNIA - BERKELEY", "year":1923},
+        {"dirty":"CONCORDIA (2015)*", "clean":"CONCORDIA", "year":2015},
+        {"dirty":"LA VERNE (2006-2011; 2012)", "clean":"LA VERNE", "year":2012},
+        {"dirty":"MITCHELL|HAMLINE (2015)", "clean":"MITCHELL|HAMLINE", "year":2015}, # consider 'MITCHELL - HAMLINE'
+        {"dirty":"NEVADA (2000) ", "clean":"NEVADA", "year":2000},
+        {"dirty":"NEW ENGLAND LAW | BOSTON (1969)", "clean":"NEW ENGLAND LAW | BOSTON", "year":1969}, # consider 'NEW ENGLAND LAW - BOSTON'
+        {"dirty":"PENNSYLVANIA STATE-Penn State Law (1931)", "clean":"PENNSYLVANIA STATE-PENN STATE LAW", "year":1931}, # consider "PENNSYLVANIA STATE - PENN STATE LAW"
+        {"dirty":"ST. THOMAS (Florida) (1988)", "clean":"ST. THOMAS (FLORIDA)", "year":1988},
+        {"dirty":"UNT Dallas (2017)", "clean":"UNT DALLAS", "year":2017}
     ]
 
-    for name in names:
-
-        assert clean_name(name["dirty"]) == name["clean"]
+    for transformation in name_transformations:
+        name, year = parse_link_text(transformation["dirty"])
+        assert name == transformation["clean"]
+        assert year == transformation["year"]
