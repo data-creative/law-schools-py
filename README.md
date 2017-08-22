@@ -25,3 +25,11 @@ python3 app/list_schools.py
 ```
 
 This will update the contents of `data/schools.csv`.
+
+### Testing
+
+Run tests:
+
+```shell
+python3 -m pytest
+```
