@@ -4,14 +4,14 @@ A source for data about law schools accredited by the [American Bar Association 
 
 ## Usage
 
-Reference [`data/schools.csv`](_____________) and/or [`data/schools.json`](_______________).
+Reference [`data/schools.csv`](https://raw.githubusercontent.com/data-creative/aba-schools-py/master/data/schools.csv) and/or [`data/schools.json`](https://raw.githubusercontent.com/data-creative/aba-schools-py/master/data/schools.json).
 
 ## Contributing
 
 ### Installation
 
 ```shell
-git clone __________/aba-schools-py
+git clone git@github.com:data-creative/aba-schools-py.git
 cd aba-schools-py/
 pip3 install -r requirements.txt
 ```
