@@ -2,34 +2,20 @@ import requests
 from bs4 import BeautifulSoup
 from IPython import embed
 
-schools = []
+school_links = []
 
-def get_document(source="Remote"):
-    document = None
+with open("mocks/disclosures_div.html", "r") as file:
+    document = file.read()
 
-    if source == "Remote":
-        URL = "https://www.americanbar.org/groups/legal_education/resources/aba_approved_law_schools/official-guide-to-aba-approved-law-schools.html"
-        print("REQUESTING REMOTE RESOURCE", URL)
-        response = requests.get(URL)
-        print("RESPONSE", response.status_code, response.encoding, dict(response.headers))
-        document = response.text
+    soup = BeautifulSoup(document, "lxml") # use "lxml" param to avoid warning when parsing local file
 
-    elif source == "Local":
-        file_path = "mocks/official_school_guide.html"
-        print("READING LOCAL FILE", file_path)
-        with open(file_path, "r") as file:
-            document = file.read()
+    links = soup.find_all("a") # around 215 items
 
-    return document
+    for link in links:
+        # not if text == "" or text in ['Standard 509 Information Reports', ]
+        text = link.text #> 'Standard 509 Information Reports'
+        href = link.attrs["href"] #> '\\"http://www.abarequireddisclosures.org/\\"'
+        school_links.append({"school": text, "url": href})
 
-doc = get_document(source="Local")
-
-#soup = BeautifulSoup(doc, "lxml")
-soup = BeautifulSoup(doc)
-
-container = soup.find(id="main-tab-container") #.find("div") # the id of this div changes with each request, which is not helpful, so we find it from its parent div
-
-embed()
-
-for school in schools:
-    print(school)
+for school_link in school_links:
+    print(school_link)
