@@ -1,8 +1,10 @@
 from app.list_schools import *
 
-def test_clean_href():
-    dirty_href = '\\"http://www.abarequireddisclosures.org/\\"'
-    assert clean_href(dirty_href) == 'http://www.abarequireddisclosures.org/'
+def test_parse_html():
+    with open("mocks/schools_tbody.html", "r") as html_file:
+        document = html_file.read()
+        schools = parse_html(document)
+        assert(len(schools)) == 204
 
 def test_parse_name():
     name_transformations = [
