@@ -4,7 +4,7 @@ def test_parse_html():
     with open("mocks/schools_tbody.html", "r") as html_file:
         document = html_file.read()
         schools = parse_html(document)
-        assert(len(schools)) == 204
+        assert(len(schools)) == 204 # ok to update this number as new data comes in (desired).
 
 def test_parse_name():
     name_transformations = [
@@ -20,7 +20,6 @@ def test_parse_name():
         {"dirty":"ST. THOMAS (Florida) (1988)", "clean":"ST. THOMAS (FLORIDA)", "year":1988},
         {"dirty":"UNT Dallas (2017)", "clean":"UNT DALLAS", "year":2017}
     ]
-
     for transformation in name_transformations:
         name, year = parse_link_text(transformation["dirty"])
         assert name == transformation["clean"]
