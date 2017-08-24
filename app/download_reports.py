@@ -1,14 +1,19 @@
-#import requests
-#from bs4 import BeautifulSoup
 #import csv
-#import re
 #import json
 from IPython import embed
 from selenium import webdriver
-
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
 URL = "http://employmentsummary.abaquestionnaire.org/"
-driver = webdriver.Firefox()
+
+profile = FirefoxProfile()
+profile.set_preference("browser.download.panel.shown", False)
+profile.set_preference("browser.helperApps.neverAsk.openFile", 'application/pdf')
+profile.set_preference("browser.helperApps.neverAsk.saveToDisk", 'application/pdf')
+profile.set_preference("browser.download.dir", "~/Desktop/reports")
+#profile.set_preference("browser.download.folderList", 2);
+
+driver = webdriver.Firefox(firefox_profile=profile)
 driver.get(URL)
 
 #
@@ -38,6 +43,9 @@ year_opt.click()
 ###response = agent.submit(form, button)
 
 submission_button = driver.find_element_by_id("btnSubmit")
+submission_button.click()
+
+
 
 embed()
 
