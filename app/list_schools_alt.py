@@ -1,11 +1,7 @@
-#import requests
-#from bs4 import BeautifulSoup
-#import csv
-#import re
-#import json
+import csv
+import json
 from IPython import embed
 from selenium import webdriver
-
 
 URL = "http://employmentsummary.abaquestionnaire.org/"
 driver = webdriver.Firefox()
@@ -21,18 +17,16 @@ for opt in school_options:
     school = {"name": opt.text, "uuid": opt.get_attribute("value")}
     print(school)
     schools.append(school)
-    #opt.click()
-
-#year_selector = driver.find_element_by_id("ddlYear")
-###year_option = year_selector.options.find{|option| option.text == year.to_s}
-###year_option.select
-
-###form = page.forms.first
-###button = page.form.button_with(:value => "Generate Report")
-###response = agent.submit(form, button)
-
-
-
-
 
 driver.close() # important, closes browser
+
+with open("data/schools_alt.csv", "w") as csv_file:
+    writer = csv.DictWriter(csv_file, fieldnames=["name", "uuid"])
+    writer.writeheader()
+
+    for school in schools:
+        print(school)
+        writer.writerow(school)
+
+with open("data/schools_alt.json", "w") as json_file:
+    json_file.write(json.dumps(schools))
