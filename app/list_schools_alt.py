@@ -10,6 +10,7 @@ driver.get(URL)
 school_selector = driver.find_element_by_id("ddlUniversity")
 
 school_options = school_selector.find_elements_by_tag_name("option") #> 207
+school_options = [opt for opt in school_options if opt.text != "Select School"] #> 206
 
 schools = []
 

@@ -17,3 +17,4 @@ Listing Schools:
 Downloading Reports:
 
   + [Earlier attempt (ruby)](https://github.com/s2t2/law-school-outcomes-api/blob/master/script/parse_pdfs.rb)
+  + [Working with selenium page objects](http://selenium-python.readthedocs.io/page-objects.html)
