@@ -1,4 +1,4 @@
-# ABA Schools (Python)
+# ABA Law Schools (Python)
 
 A source for data about law schools accredited by the [American Bar Association (ABA)](https://www.americanbar.org). Contains a comprehensive list of schools in machine-readable formats.
 
@@ -35,8 +35,8 @@ mkdir /usr/local/selenium # you might have to sudo this. if so, afterwards `chow
 Install source code:
 
 ```shell
-git clone git@github.com:data-creative/aba-schools-py.git
-cd aba-schools-py/
+git clone git@github.com:data-creative/law-schools-py.git
+cd law-schools-py/
 ```
 
 Install package dependencies:
@@ -54,6 +54,14 @@ python3 app/list_schools.py
 ```
 
 This will update the contents of `mocks/schools_tbody.html` and `data/schools.csv` and `data/schools.json` for further reference. If the contents change, please commit and push and release a new version.
+
+Download employment summary reports for each school:
+
+```shell
+python3 app/download_reports.py
+```
+
+This will update the contents of `reports/` and `data/reports.csv` and `data/reports.json` for further reference. If the contents change, please commit and push and release a new version.
 
 ### Testing
 

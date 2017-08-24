@@ -1,5 +1,7 @@
 # Credits, Notes, and Reference
 
+Listing Schools:
+
   + [`requests` Package Overview](https://github.com/prof-rossetti/nyu-info-2335-70-201706/blob/master/notes/programming-languages/python/packages/requests.md)
   + [`bs4` Package Overview](https://github.com/prof-rossetti/nyu-info-2335-70-201706/blob/master/notes/programming-languages/python/packages/beautifulsoup.md)
   + [`pytest` Package Overview](https://stackoverflow.com/a/34936625/670433)
@@ -11,3 +13,7 @@
   + [Slicing Strings](https://stackoverflow.com/questions/509211/explain-slice-notation)
   + [Bypassing `pip3` Selenium Permissions Error](https://stackoverflow.com/a/41725942/670433)
   + [Installing `geckodriver` and adding to path (for use by `selenium`)](http://remarkablemark.org/blog/2016/11/06/selenium-geckodriver/)
+
+Downloading Reports:
+
+  + [Earlier attempt (ruby)](https://github.com/s2t2/law-school-outcomes-api/blob/master/script/parse_pdfs.rb)
