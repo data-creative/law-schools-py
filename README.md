@@ -8,32 +8,52 @@ Reference [`data/schools.csv`](https://raw.githubusercontent.com/data-creative/a
 
 ## Contributing
 
+### Prerequisites
+
+Install Python and Pip 3.x:
+
+```shell
+brew install python3
+```
+
+Install a web driver to facilitate automated browsing:
+
+```shell
+brew install geckodriver
+# then append to your bash config file (e.g., `~/.bashrc`)
+export PATH=$PATH:/path/to/geckodriver # enable use of selenium for python
+```
+
+Ensure your user has access to a directory called `/usr/local/selenium`:
+
+```shell
+mkdir /usr/local/selenium # you might have to sudo this. if so, afterwards `chown your_username /usr/local/selenium`
+```
+
 ### Installation
+
+Install source code:
 
 ```shell
 git clone git@github.com:data-creative/aba-schools-py.git
 cd aba-schools-py/
+```
+
+Install package dependencies:
+
+```shell
 pip3 install -r requirements.txt
 ```
 
-### Setup
-
-First, ensure the file called `mocks/disclosures_div.html` contains an updated list of schools:
-
-  + Visit the ABA's [Official Guide to ABA-Approved Law Schools](https://www.americanbar.org/groups/legal_education/resources/aba_approved_law_schools/official-guide-to-aba-approved-law-schools.html).
-  + Download an HTML-only version of the page, and save it as `mocks/official_school_guide.html`.
-  + Review the contents of that document to find JavaScript-generated HTML contents. Search for the text `"The ABA collects this quantitative data" ...` to find where jQuery generates the contents of a `p` tag.
-  + Copy and paste the entire `p` tag contents to `mocks/disclosures_div.html`.
-
 ### Execution
 
-Generate a CSV file containing the official list of schools:
+Update the list of schools:
 
 ```shell
 python3 app/list_schools.py
 ```
 
-This will update the contents of `data/schools.csv` and `data/schools.json`.
+This will update the contents of `mocks/schools_tbody.html` and `data/schools.csv` and `data/schools.json` for further reference. If the contents change, please commit and push and release a new version.
 
 ### Testing
 
@@ -42,3 +62,5 @@ Run tests:
 ```shell
 python3 -m pytest
 ```
+
+## [License](LICENSE)
