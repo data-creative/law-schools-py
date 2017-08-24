@@ -3,9 +3,8 @@ from bs4 import BeautifulSoup
 import csv
 import re
 import json
-from IPython import embed
+#from IPython import embed
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 
 def request_html():
     URL = "https://www.americanbar.org/groups/legal_education/resources/aba_approved_law_schools/official-guide-to-aba-approved-law-schools.html"
