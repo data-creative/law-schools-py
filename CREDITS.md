@@ -24,3 +24,5 @@ Downloading Reports:
   + so many stack overflow posts - don't work
   + [Possible FirefoxProfile configs](http://kb.mozillazine.org/Firefox_:_FAQs_:_About:config_Entries)
   + [A combination of FirefoxProfile configs which bypasses the file download dialog box](https://stackoverflow.com/a/44351879/670433)
+  + [Bypassing selenium's inability to specify names of downloaded files](https://stackoverflow.com/a/27580927/670433)
+  + [Accessing file timestamps via `os` module](https://docs.python.org/3/library/os.html)
