@@ -3,6 +3,7 @@
 from IPython import embed
 from selenium import webdriver
 import os
+import time
 
 URL = "http://employmentsummary.abaquestionnaire.org/"
 REPORTS_DIR = os.getcwd() + "/reports"
@@ -65,6 +66,8 @@ opt = school_options[-1]
 opt.click()
 submission_button.click()
 
-embed() # note: the download doesn't happen without the pause. this means we have to respect async actions somehow.
+#embed() # note: the download doesn't happen without the pause. this means we have to respect async actions somehow.
+
+time.sleep(2)
 
 driver.close() # important, closes browser window
