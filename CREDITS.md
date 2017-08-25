@@ -18,3 +18,9 @@ Downloading Reports:
 
   + [Earlier attempt (ruby)](https://github.com/s2t2/law-school-outcomes-api/blob/master/script/parse_pdfs.rb)
   + [Working with selenium page objects](http://selenium-python.readthedocs.io/page-objects.html)
+  + [Explanation of Firefox profile configs](http://yizeng.me/2014/05/23/download-pdf-files-automatically-in-firefox-using-selenium-webdriver/)
+  + [Debugging/checking MIME-type of a given file](http://mime.ritey.com/)
+  + [Official guidance from selenium for auto-downloading files](http://selenium-python.readthedocs.io/faq.html#how-to-auto-save-files-using-custom-firefox-profile) -- doesn't work.
+  + so many stack overflow posts - don't work
+  + [Possible FirefoxProfile configs](http://kb.mozillazine.org/Firefox_:_FAQs_:_About:config_Entries)
+  + [A combination of FirefoxProfile configs which bypasses the file download dialog box](https://stackoverflow.com/a/44351879/670433)
