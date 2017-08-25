@@ -52,22 +52,11 @@ school_selector = driver.find_element_by_id("ddlUniversity")
 school_options = school_selector.find_elements_by_tag_name("option") #> 207
 school_options = [opt for opt in school_options if opt.text != "Select School"] #> 206
 
-#for i, opt in enumerate(school_options[0:5]):
-#    school = {"name": opt.text, "uuid": opt.get_attribute("value")}
-#    print(school)
-#
-#    opt.click()
-#
-#    submission_button.click()
-#
-#    #if i == 0: embed()  # allows the user to interact with dialog to click both "always ", then subsequent downloads will happen automatically
-
-opt = school_options[-1]
-opt.click()
-submission_button.click()
-
-#embed() # note: the download doesn't happen without the pause. this means we have to respect async actions somehow.
-
-time.sleep(2)
+for i, opt in enumerate(school_options[0:5]):
+    school = {"name": opt.text, "uuid": opt.get_attribute("value")}
+    print(school)
+    opt.click()
+    submission_button.click()
+    time.sleep(2) # note: the download doesn't happen without the pause. this means we have to respect async actions.
 
 driver.close() # important, closes browser window
