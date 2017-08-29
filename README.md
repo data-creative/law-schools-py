@@ -1,10 +1,10 @@
-# ABA Law Schools (Python)
+# Law Schools (Python)
 
 A source for data about law schools accredited by the [American Bar Association (ABA)](https://www.americanbar.org). Contains a comprehensive list of schools in machine-readable formats.
 
 ## Usage
 
-Reference [`data/schools.csv`](https://raw.githubusercontent.com/data-creative/aba-schools-py/master/data/schools.csv) and/or [`data/schools.json`](https://raw.githubusercontent.com/data-creative/aba-schools-py/master/data/schools.json).
+Reference [`data/schools.csv`](https://raw.githubusercontent.com/data-creative/law-schools-py/master/data/schools.csv) and/or [`data/schools.json`](https://raw.githubusercontent.com/data-creative/law-schools-py/master/data/schools.json).
 
 ## Contributing
 
