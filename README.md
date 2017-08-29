@@ -55,6 +55,14 @@ python3 app/list_schools.py
 
 This will update the contents of `mocks/schools_tbody.html` and `data/schools.csv` and `data/schools.json` for further reference. If the contents change, please commit and push and release a new version.
 
+Download employment summary reports for each school:
+
+```shell
+python3 app/download_reports.py
+```
+
+This will update the contents of `reports/` and `data/reports.csv` and `data/reports.json` for further reference. If the contents change, please commit and push and release a new version.
+
 ### Testing
 
 Run tests:
