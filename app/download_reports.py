@@ -40,6 +40,7 @@ selected_year_options = select_years(year_options)
 for year_opt in selected_year_options:
     print("SELECTING YEAR:", year_opt.text)
     year_opt.click()
+    time.sleep(2)
 
     # note: school options change for different years, for example a school won't be included in the 2010 list if it was founded in 2012 (La Verne, Mass.)
     school_selector = driver.find_element_by_id("ddlUniversity") # if this is defined before the year selection,
@@ -48,7 +49,8 @@ for year_opt in selected_year_options:
     print("... FOUND", len(school_options), "SCHOOLS")
     for school_opt in school_options:
         school = {"name": school_opt.text, "uuid": school_opt.get_attribute("value")}
-        #print(school)
+
+        print(school)
 
         #school_opt.click()
         #submission_button.click() # download the report
